@@ -1,22 +1,20 @@
-
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, StatusBar, ActivityIndicator, TouchableOpacity, Image } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
+
+import Constants from 'expo-constants'
+import * as Permissions from 'expo-permissions'
+import * as ImagePicker from 'expo-image-picker'
+import * as FileSystem from 'expo-file-system'
+
+import * as jpeg from 'jpeg-js'
 
 import * as tf from '@tensorflow/tfjs';
 import '@tensorflow/tfjs-react-native';
 
 // import * as mobilenet from '@tensorflow-models/mobilenet'
-// see https://github.com/tensorflow/tfjs-models
+// You can try with other models, see https://github.com/tensorflow/tfjs-models
 import * as cocossd from '@tensorflow-models/coco-ssd'
-
-import Constants from 'expo-constants'
-import * as Permissions from 'expo-permissions'
-import * as jpeg from 'jpeg-js'
-import * as ImagePicker from 'expo-image-picker'
-
-import { fetch } from '@tensorflow/tfjs-react-native'
-import * as FileSystem from 'expo-file-system'
 
 export default class CocoSsdScreen extends React.Component {
   constructor(props) {
@@ -154,13 +152,13 @@ export default class CocoSsdScreen extends React.Component {
         <StatusBar barStyle='light-content' />
         <View style={styles.loadingContainer}>
           <Text style={styles.text}>
-            TensorFlow.js ready? {isTfReady ? <Text>✅</Text> : ''}
+            TensorFlow.js ready? {isTfReady ? <Text>✌</Text> : ''}
           </Text>
 
           <View style={styles.loadingModelContainer}>
             <Text style={styles.text}>COCO-SSD model ready? </Text>
             {isModelReady ? (
-              <Text style={styles.text}>✅</Text>
+              <Text style={styles.text}>✌</Text>
             ) : (
               <ActivityIndicator size='small' />
             )}
@@ -233,7 +231,7 @@ const styles = StyleSheet.create({
     width: 280,
     height: 280,
     padding: 10,
-    borderColor: '#cf667f',
+    borderColor: 'blue',
     borderWidth: 5,
     borderStyle: 'dashed',
     marginTop: 40,
